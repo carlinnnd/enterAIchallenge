@@ -10,15 +10,16 @@ Solução completa para extração estruturada de informações a partir de PDFs
 
 O fluxo é dividido em três níveis complementares:
 
-1. **Regex Heurístico (Nível 0)**  
+1. **Regex Heurístico (Nível 0)**
+   - Alguns padrões regex pré escritos manualmente baseados em casos gerais são carregados.
    - Extração direta via expressões regulares otimizadas.
    - Ideal para campos padronizados (datas, valores, nomes, etc).
 
-2. **Aprendizado Dinâmico (Nível 1)**  
+3. **Aprendizado Dinâmico (Nível 1)**  
    - Regexs aprendem automaticamente novos padrões a partir de valores extraídos.
    - Reutiliza padrões entre labels diferentes (transfer learning textual).
 
-3. **Fallback GPT (Nível 2)**  
+4. **Fallback GPT (Nível 2)**  
    - Executado apenas em **~30% dos casos** quando o heurístico não resolve.
    - Modelo: `gpt-5-mini`, com truncamento e validação contextual.
    - Padrões corretos aprendidos pelo GPT são armazenados e reaproveitados.
